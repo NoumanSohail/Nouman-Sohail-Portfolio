@@ -1,0 +1,239 @@
+@import "tailwindcss";
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+  position: relative;
+  background: radial-gradient(circle at 50% 0%, #1e1b4b, #0f172a, #020617);
+  min-height: 100vh;
+}
+
+/* Main comet container */
+.comet {
+  position: absolute;
+  right: -400px;
+  width: 320px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  transform: rotate(-25deg);
+  animation-name: comet-rock;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes rock-glow {
+  0% {
+    box-shadow:
+      0 0 6px rgba(255, 255, 255, 0.6),
+      0 0 12px rgba(200, 200, 200, 0.4),
+      0 0 18px rgba(0, 0, 0, 0.5);
+  }
+  50% {
+    box-shadow:
+      0 0 10px rgba(255, 255, 255, 1),
+      0 0 20px rgba(220, 220, 220, 0.8),
+      0 0 30px rgba(120, 120, 120, 0.6);
+  }
+  100% {
+    box-shadow:
+      0 0 6px rgba(255, 255, 255, 0.6),
+      0 0 12px rgba(200, 200, 200, 0.4),
+      0 0 18px rgba(0, 0, 0, 0.5);
+  }
+}
+
+/* ROCK HEAD */
+.comet-head {
+  position: relative;
+  z-index: 2;
+  width: 22px;
+  height: 22px;
+  background: radial-gradient(
+    circle at 30% 30%,
+    #f5f5f5,
+    #bdbdbd 45%,
+    #616161 70%,
+    #212121 100%
+  );
+  border-radius: 55% 45% 60% 40%;
+  box-shadow:
+    0 0 6px rgba(255, 255, 255, 0.9),
+    0 0 12px rgba(200, 200, 200, 0.6),
+    0 0 18px rgba(0, 0, 0, 0.6);
+  animation: rock-glow 1s ease-in-out infinite;
+}
+
+@keyframes tail-glow {
+  0% {
+    filter: blur(0.6px);
+    opacity: 0.6;
+  }
+  50% {
+    filter: blur(1.2px);
+    opacity: 1;
+  }
+  100% {
+    filter: blur(0.6px);
+    opacity: 0.6;
+  }
+}
+
+/* BODY + TAIL (rock / smoke style) */
+.comet-tail {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  height: 14px;
+  left: -8px;
+  background: linear-gradient(
+    90deg,
+    rgba(245, 245, 245, 0.95),
+    rgba(190, 190, 190, 0.8),
+    rgba(120, 120, 120, 0.55),
+    rgba(60, 60, 60, 0.25),
+    rgba(0, 0, 0, 0)
+  );
+  border-radius: 999px;
+  box-shadow:
+    0 0 10px rgba(255, 255, 255, 0.45),
+    0 0 22px rgba(200, 200, 200, 0.35),
+    0 0 36px rgba(120, 120, 120, 0.25);
+  filter: blur(0.6px);
+  clip-path: polygon(0% 0%, 100% 40%, 100% 60%, 0% 100%);
+  animation: tail-glow 1s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+/* DIAGONAL FALL */
+@keyframes comet-rock {
+  0% {
+    transform: translate(0, 0) rotate(-25deg);
+    opacity: 0;
+  }
+  8% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-160vw, 120vh) rotate(-25deg);
+    opacity: 0;
+  }
+}
+
+/* 👽 Alien UFO Image */
+.alien-ufo-wrapper {
+  position: absolute;
+  top: 10%;
+  left: -30%;
+  pointer-events: none;
+  z-index: 1;
+  animation: alien-diagonal-wave 10s ease-in-out infinite;
+}
+
+/* Left → Right + Top → Bottom + Wave */
+@keyframes alien-diagonal-wave {
+  0% {
+    transform: translate(0vw, 0vh);
+    opacity: 0.4;
+  }
+  10% {
+    opacity: 0.6;
+  }
+  20% {
+    opacity: 1;
+  }
+  30% {
+    transform: translate(25vw, 15vh);
+  }
+  50% {
+    transform: translate(55vw, 40vh);
+  }
+  70% {
+    transform: translate(85vw, 65vh);
+  }
+  100% {
+    transform: translate(120vw, 30vh);
+    opacity: 0;
+  }
+}
+
+.astronaut-wrapper {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.astronaut {
+  position: absolute;
+  bottom: -10px;
+  right: -200px;
+  width: 200px;
+  height: auto;
+  animation: astronaut-fly 20s linear infinite;
+}
+
+/* FULL bottom-right ➜ top-left traversal */
+@keyframes astronaut-fly {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 0.5;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-120vw, -120vh);
+    opacity: 0.5;
+  }
+}
+
+@keyframes satelliteMove {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translate(120vw, -70vh);
+  }
+}
+
+.satellite-wrapper {
+  position: absolute;
+  bottom: 0;
+  left: -20%;
+  z-index: 0;
+  pointer-events: none;
+  animation: satelliteMove 15s linear infinite;
+  will-change: transform;
+}
+
+@keyframes asteroid-move {
+  0% {
+    transform: translate(120vw, -30vh) rotate(1deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-150vw, 100vh) rotate(50deg);
+    opacity: 1;
+  }
+}
+
+.asteroid-wrapper {
+  position: absolute;
+  top: 20%;
+  left: 0;
+  z-index: 0;
+  pointer-events: none;
+  animation: asteroid-move 15s linear infinite;
+  will-change: transform;
+}

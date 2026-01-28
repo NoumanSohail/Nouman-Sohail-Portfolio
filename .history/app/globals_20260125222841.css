@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+  position: relative;
+  background: radial-gradient(circle at 50% 0%, #1e1b4b, #0f172a, #020617);
+  min-height: 100vh;
+}
+
+.meteor {
+  position: absolute;
+  right: -200px;
+  width: 180px;
+  height: 2px;
+  background: linear-gradient(
+    270deg,
+    rgba(168, 85, 247, 0.8),
+    rgba(168, 85, 247, 0)
+  );
+  opacity: 0.8;
+  animation: meteor-fall linear infinite;
+}
+
+@keyframes meteor-fall {
+  0% {
+    transform: translateX(0) translateY(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-140vw) translateY(120px);
+    opacity: 0;
+  }
+}

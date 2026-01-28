@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+  position: relative;
+  background: radial-gradient(circle at 50% 0%, #1e1b4b, #0f172a, #020617);
+  min-height: 100vh;
+}
+
+/* Main meteor container */
+.meteor {
+  position: absolute;
+  top: -120px;
+  right: -400px;
+
+  width: 320px;
+  height: 18px;
+
+  display: flex;
+  align-items: center;
+
+  transform: rotate(-25deg);
+  animation: meteor-rock linear infinite;
+  pointer-events: none;
+}
+
+/* ROCK HEAD */
+.meteor-head {
+  width: 22px;
+  height: 22px;
+
+  background: radial-gradient(
+    circle at 30% 30%,
+    #f5f5f5,
+    #bdbdbd 45%,
+    #616161 70%,
+    #212121 100%
+  );
+
+  border-radius: 55% 45% 60% 40%;
+
+  box-shadow:
+    0 0 6px rgba(255, 255, 255, 0.9),
+    0 0 12px rgba(200, 200, 200, 0.6),
+    0 0 18px rgba(0, 0, 0, 0.6);
+
+  flex-shrink: 0;
+}
+
+/* BODY + TAIL (rock / smoke style) */
+.meteor-tail {
+  position: relative;
+  flex: 1;
+  height: 14px; /* thick near the head */
+  margin-left: -6px;
+
+  background: linear-gradient(
+    90deg,
+    rgba(245, 245, 245, 0.95),
+    /* bright near head */ rgba(190, 190, 190, 0.8),
+    rgba(120, 120, 120, 0.55),
+    rgba(60, 60, 60, 0.25),
+    rgba(0, 0, 0, 0)
+  );
+
+  border-radius: 999px;
+
+  /* Glow */
+  box-shadow:
+    0 0 10px rgba(255, 255, 255, 0.45),
+    0 0 22px rgba(200, 200, 200, 0.35),
+    0 0 36px rgba(120, 120, 120, 0.25);
+
+  /* subtle softness */
+  filter: blur(0.6px);
+
+  /* taper thickness from start -> end */
+  clip-path: polygon(0% 0%, 100% 40%, 100% 60%, 0% 100%);
+}
+
+/* DIAGONAL FALL */
+@keyframes meteor-rock {
+  0% {
+    transform: translate(0, 0) rotate(-25deg);
+    opacity: 0;
+  }
+
+  8% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(-160vw, 120vh) rotate(-25deg);
+    opacity: 0;
+  }
+}
