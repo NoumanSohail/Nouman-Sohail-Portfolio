@@ -40,21 +40,20 @@ const Hero = () => {
             whileInView={{ x: 0, opacity: 1 }}
             viewport={{ once: false, amount: 0.3 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
+            className="flex flex-col gap-5"
           >
-            <div className="flex flex-col gap-5">
-              <h1
-                className="font-black text-4xl lg:text-5xl xl:text-6xl tracking-wider text-balance text-transparent 
+            <h1
+              className="font-black text-4xl lg:text-5xl xl:text-6xl tracking-wider text-balance text-transparent 
                          bg-clip-text bg-linear-to-r from-blue-400 via-purple-400 to-red-400"
-              >
-                {personaldetails.name}
-              </h1>
-              <h2 className="font-semibold text-xl lg:text-2xl">
-                {personaldetails.tagline}
-              </h2>
-              <p className="md:text-lg lg:text-balance text-gray-400">
-                {personaldetails.statement}
-              </p>
-            </div>
+            >
+              {personaldetails.name}
+            </h1>
+            <h2 className="font-semibold text-xl lg:text-2xl">
+              {personaldetails.tagline}
+            </h2>
+            <p className="md:text-lg lg:text-balance text-gray-400">
+              {personaldetails.statement}
+            </p>
           </motion.div>
 
           <motion.div
@@ -65,9 +64,10 @@ const Hero = () => {
               duration: 0.3,
               ease: "easeOut",
             }}
+            className="flex flex-col gap-5 mt-5 items-center justify-center lg:items-start lg:justify-start"
           >
             {/* Jumping Icons */}
-            <div className="flex gap-5 mt-5 items-center justify-center lg:items-start lg:justify-start">
+            <div className="flex gap-5">
               <Smartphone
                 size={60}
                 className="p-4 border rounded-2xl backdrop-blur-xs bg-blue-300/10 hover:scale-110
@@ -99,7 +99,7 @@ const Hero = () => {
               title={`${loading ? "Downloading..." : "Download Resume"}`}
               onClick={handleDownload}
               icon={<Download size={28} />}
-              className="mt-5 bg-white/5 hover:shadow-md hover:shadow-purple-300/50 border border-white/20
+              className="bg-white/5 hover:shadow-md hover:shadow-purple-300/50 border border-white/20
                          p-4 w-[70%] lg:w-[50%] rounded-full md:text-lg transition-all duration-200 
                          hover:animate-pulse backdrop-blur-xs active:scale-[0.8] active:opacity-1"
               disabled={loading}

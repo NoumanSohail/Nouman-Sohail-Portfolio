@@ -99,7 +99,7 @@ const Hero = () => {
               title={`${loading ? "Downloading..." : "Download Resume"}`}
               onClick={handleDownload}
               icon={<Download size={28} />}
-              className="mt-5 bg-white/5 hover:shadow-md hover:shadow-purple-300/50 border border-white/20
+              className="bg-white/5 hover:shadow-md hover:shadow-purple-300/50 border border-white/20
                          p-4 w-[70%] lg:w-[50%] rounded-full md:text-lg transition-all duration-200 
                          hover:animate-pulse backdrop-blur-xs active:scale-[0.8] active:opacity-1"
               disabled={loading}
