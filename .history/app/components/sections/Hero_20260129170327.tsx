@@ -40,6 +40,7 @@ const Hero = () => {
             whileInView={{ x: 0, opacity: 1 }}
             viewport={{ once: false, amount: 0.3 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
+            className="flex sm:mx-auto lg:mx-0"
           >
             <div className="flex flex-col gap-5">
               <h1
@@ -65,10 +66,9 @@ const Hero = () => {
               duration: 0.3,
               ease: "easeOut",
             }}
-            className="flex flex-col items-center justify-center lg:items-start lg:justify-start"
           >
             {/* Jumping Icons */}
-            <div className="flex gap-5 mt-5">
+            <div className="flex gap-5 mt-5 items-center justify-center lg:items-start lg:justify-start">
               <Smartphone
                 size={60}
                 className="p-4 border rounded-2xl backdrop-blur-xs bg-blue-300/10 hover:scale-110

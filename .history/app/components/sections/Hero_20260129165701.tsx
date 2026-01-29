@@ -33,7 +33,7 @@ const Hero = () => {
                    gap-7 lg:gap-20 text-center lg:text-start mt-30 xl:mt-40"
       >
         {/* Entire Content wraper */}
-        <div className="flex flex-col gap-5">
+        <div className="flex flex-col gap-5 items-center justify-center border">
           {/* Name, Tagline, Statement */}
           <motion.div
             initial={{ x: -100, opacity: 0 }}
@@ -65,10 +65,10 @@ const Hero = () => {
               duration: 0.3,
               ease: "easeOut",
             }}
-            className="flex flex-col items-center justify-center lg:items-start lg:justify-start"
+            className="w-full flex-col justify-between items-center"
           >
             {/* Jumping Icons */}
-            <div className="flex gap-5 mt-5">
+            <div className="flex gap-5 mt-5 items-center justify-center lg:items-start lg:justify-start">
               <Smartphone
                 size={60}
                 className="p-4 border rounded-2xl backdrop-blur-xs bg-blue-300/10 hover:scale-110
@@ -100,7 +100,7 @@ const Hero = () => {
               title={`${loading ? "Downloading..." : "Download Resume"}`}
               onClick={handleDownload}
               icon={<Download size={28} />}
-              className="mt-5 bg-white/5 hover:shadow-md hover:shadow-purple-300/50 border border-white/20
+              className="flex items-center justify-center mt-5 bg-white/5 hover:shadow-md hover:shadow-purple-300/50 border border-white/20
                          p-4 w-[70%] lg:w-[50%] rounded-full md:text-lg transition-all duration-200 
                          hover:animate-pulse backdrop-blur-xs active:scale-[0.8] active:opacity-1"
               disabled={loading}

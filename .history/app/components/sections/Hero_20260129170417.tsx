@@ -65,7 +65,7 @@ const Hero = () => {
               duration: 0.3,
               ease: "easeOut",
             }}
-            className="flex flex-col items-center justify-center lg:items-start lg:justify-start"
+            className="flex items-center justify-center lg:items-start lg:justify-start"
           >
             {/* Jumping Icons */}
             <div className="flex gap-5 mt-5">
